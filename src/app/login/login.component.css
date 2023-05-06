@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+.container {
+    font-family: 'Source Sans Pro', sans-serif;
+    max-width: 30%;
+    margin: 10% auto 0;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+input[type="password"] {
+    background-image: url(https://icons8.com/icon/vmqv135kp5Ty/eye.ico);
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+
+}
+
+.form-group input {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background-color: #444;
+    color: #fff;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-bottom-color: orange;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.google-login {
+    display: flex;
+    align-items: center;
+    background-color: orange;
+}
+
+.google-login:hover {
+    background-color: orange;
+}
+
+.google-login img {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
+
+button[type="submit"],
+.google-login button {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: orange;
+    color: #fff;
+    cursor: pointer;
+}

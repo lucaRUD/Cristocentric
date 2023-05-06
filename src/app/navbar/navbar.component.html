@@ -1,0 +1,20 @@
+<mat-toolbar >
+  <span class="title">CRISTOCENTRIC</span>
+  <span class="nav-links">
+    <a routerLink="/home" routerLinkActive="active">HOME</a>
+    <a routerLink="/store" routerLinkActive="active">STORE</a>
+    <a routerLink="/donate" routerLinkActive="active">DONATE</a>
+    <ng-container *ngIf="authService.isLoggedIn | async; else notLoggedIn">
+      <span>Welcome, {{ (authService.user | async)?.firstName }}!</span>
+      <button mat-button [matMenuTriggerFor]="userMenu">User Menu</button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item>Orders</button>
+        <button mat-menu-item (click)="authService.logout()">Logout</button>
+      </mat-menu>
+    </ng-container>
+    <ng-template #notLoggedIn>
+      <a routerLink="/login" routerLinkActive="active">LOGIN</a>
+    </ng-template>
+  </span>
+</mat-toolbar>

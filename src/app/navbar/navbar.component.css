@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+mat-toolbar {
+    background-color: rgba(3, 1, 1, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: +1;
+}
+
+.title {
+    margin-right: 20px;
+    font-family: 'Anzeigen Grotesk D';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 75%;
+    /* identical to box height, or 172px */
+
+    letter-spacing: 0.135em;
+
+}
+
+.nav-links {
+    margin-left: auto;
+
+}
+
+.nav-links a {
+    font-family: 'Poppins', sans-serif;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu-button {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+        margin-left: auto;
+
+    }
+
+    .mat-menu-item a {
+        text-decoration: none;
+        color: white;
+
+
+    }
+}

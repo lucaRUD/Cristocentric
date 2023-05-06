@@ -1,0 +1,24 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <div class="password-container">
+        <input [type]="show ? 'text' : 'password'" required />
+        <i class="fa fa-eye" (click)="toggleShow()"></i>
+      </div>
+    </div>
+    <div class="button-group">
+      <div class="google-login">
+        <button (click)="loginWithGoogle()">Login with Google</button>
+        <img src="https://img.icons8.com/color/48/null/google-logo.png" alt="Google logo">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <p>Don't have an account yet? <a routerLink="/register">Register here.</a></p>
+    <div *ngIf="error" class="text-danger">{{ error }}</div>
+  </form>
+</div>
