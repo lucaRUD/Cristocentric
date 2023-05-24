@@ -1,14 +1,51 @@
+import json
 from django.http import JsonResponse
 from django.views import View
+import requests
 from rest_framework import status,views,generics
 from rest_framework.response import Response
 from .serializers import UserSerializer
-from .models import CustomUser
+from .models import CustomUser, Order
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.utils.encoding import force_bytes, force_str
+
+
+class ProdigiProductsAPIView(views.APIView):
+    def get(self, request, product_id):
+        # Set the URL and headers for the Prodigi API request
+        url = f'https://api.sandbox.prodigi.com/v4.0/Products/{product_id}'
+        headers = {
+            'X-API-Key': 'test_197d4ae4-7f06-4c01-8ad8-601cb4e78512',
+            'Content-Type': 'application/json'
+        }
+
+        # Send the request to the Prodigi API
+        response = requests.get(url, headers=headers)
+
+        # Return the response from the Prodigi API
+        return Response(response.json())
+
+
+class ProdigiOrdersAPIView(views.APIView):
+    def post(self, request):
+        # Get the data from the request
+        data = request.data
+
+        # Set the URL and headers for the Prodigi API request
+        url = 'https://api.sandbox.prodigi.com/v4.0/Orders'
+        headers = {
+            'X-API-Key': 'test_197d4ae4-7f06-4c01-8ad8-601cb4e78512',
+            'Content-Type': 'application/json'
+        }
+
+        # Send the request to the Prodigi API
+        response = requests.post(url, headers=headers, json=data)
+
+        # Return the response from the Prodigi API
+        return Response(response.json())
 
 def send_verification_email(user):
     token = default_token_generator.make_token(user)

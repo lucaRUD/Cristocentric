@@ -1,5 +1,5 @@
 from django.urls import include, path
-from .views import RegisterView, VerifyEmailView,LoginView,check_fields
+from .views import ProdigiOrdersAPIView, RegisterView, VerifyEmailView,LoginView,check_fields
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('login/', LoginView.as_view()),
     path('check-fields/<str:email>/<str:username>/<str:phone_number>/', check_fields),
     path('logout/',LogoutView.as_view()),
+    path('orders/',ProdigiOrdersAPIView.as_view()),
 ]
