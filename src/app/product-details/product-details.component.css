@@ -1,0 +1,41 @@
+img {
+    max-width: 100%;
+}
+
+.product {
+    color: white;
+}
+
+.col-md-6 {
+    color: white;
+    padding-left: 5vh;
+
+}
+
+
+
+.select-container {
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5vh;
+
+}
+
+.select {
+    padding: 1vh;
+    width: 30vh;
+    border-radius: 15px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    background-color: orange;
+    color: white;
+}
+
+
+
+@media (max-width: 600px) {
+    .select {
+        font-size: 14px;
+    }
+}

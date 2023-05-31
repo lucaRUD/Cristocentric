@@ -1,7 +1,9 @@
 
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 <app-navbar></app-navbar>
 
-  <!-- Add a router outlet to display the components -->
-  <router-outlet></router-outlet>
+<div [@routeAnimations]="prepareRoute(outlet)" class="page-container">
+  <router-outlet #outlet="outlet"></router-outlet>
 
+
+</div>

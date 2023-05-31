@@ -1,24 +1,25 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1">Welcome Back</h2>
+      <h4 class="animation a2">Log in to your account using email and password</h4>
     </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <div class="password-container">
-        <input [type]="show ? 'text' : 'password'" required />
-        <i class="fa fa-eye" (click)="toggleShow()"></i>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form">
+        <input type="text" class="form-field animation a3" placeholder="Username" [(ngModel)]="username" name="username" required>
+        <div class="password-container">
+          <input [type]="show ? 'text' : 'password'" class="form-field animation a4" placeholder="Password" [(ngModel)]="password" autocomplete="current-password" name="password" required />
+          <i class="fa fa-eye" (click)="toggleShow()"></i>
+          <div *ngIf="error" class="text-danger">{{ error }}</div>
+        </div>
+        <p class="animation a5"><a href="#">Forgot Password</a></p>
+        <button type="submit" class="animation a6" (click)="onSubmit()">LOGIN</button>
+        <button type="submit" class="animation a6" routerLink="/register">SIGN UP</button>
+        <button type="submit" class="animation a6" id="google-button" (click)="loginWithGoogle()">SIGN IN WITH GOOGLE</button>
+        
+        
       </div>
-    </div>
-    <div class="button-group">
-      <div class="google-login">
-        <button (click)="loginWithGoogle()">Login with Google</button>
-        <img src="https://img.icons8.com/color/48/null/google-logo.png" alt="Google logo">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    <p>Don't have an account yet? <a routerLink="/register">Register here.</a></p>
-    <div *ngIf="error" class="text-danger">{{ error }}</div>
-  </form>
+    </form>
+  </div>
+  <div class="right"></div>
 </div>

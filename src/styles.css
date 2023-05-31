@@ -1,12 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~bootstrap/dist/css/bootstrap.css";
 
 html,
 body {
     height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+
+
 }
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Poppins','Roboto', "Helvetica Neue", sans-serif;
     background-color: rgba(25, 24, 28, 1);
+
+
 }

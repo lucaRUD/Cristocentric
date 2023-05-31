@@ -1,0 +1,41 @@
+
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" [src]="product.image" alt="..." /></div>
+            <div class="col-md-6" >
+                <div class="small mb-1">{{ product.sku }}</div>
+                <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
+                <div class="row fs-5 mb-5">
+                    <span>{{ product.price | currency }}</span>
+
+                </div>
+                <p class="lead">{{ product.description }}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque id quam eget congue. Integer vulputate feugiat risus eget ornare. Quisque in tellus tristique, imperdiet ligula vitae, tincidunt elit. Mauris mattis dolor et bibendum luctus. Suspendisse placerat turpis quam, non.</p>
+                <div class="select-container">
+                  <select class="select" [(ngModel)]="selectedColor" >
+                    <option value="" selected disabled hidden>Choose color</option>
+                    <option *ngFor="let color of product.colors" [value]="color">
+                      {{ color }}
+                    </option>
+                  </select>
+                  <select class="select" [(ngModel)]="selectedSize">
+                    <option value="" selected disabled hidden>Choose size</option>
+                    <option *ngFor="let size of product.sizes" [value]="size">
+                      {{ size }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="d-flex">
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" [(ngModel)]="quantity" style="max-width: 3rem" />                   
+                    <button class="btn btn-light flex-shrink-0" type="button" (click)="addToCart()">
+                        <i class="bi-cart-fill me-1"></i>
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

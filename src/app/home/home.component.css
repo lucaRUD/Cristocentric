@@ -1,7 +1,8 @@
 .parallax-container {
     /* margin-top: 4%; */
     position: relative;
-    height: 100%;
+    height: 100vh;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -48,6 +49,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .parallax-content h1 {
@@ -56,6 +58,7 @@
     font-family: 'Anzeigen Grotesk D';
     font-style: normal;
     font-weight: 500;
+    line-height: 75%;
     letter-spacing: 0.135em;
 }
 
@@ -65,10 +68,8 @@
     font-weight: 400;
     color: white;
     font-size: 4vw;
-    line-height: 200%;
-    /* identical to box height, or 48px */
-
     text-align: center;
+    line-height: 75%;
 
 }
 

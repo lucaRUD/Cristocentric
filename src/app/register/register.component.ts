@@ -39,7 +39,7 @@ export class RegisterComponent {
                 console.log(response);
                 // Handle success response
                 // Set user as logged in and set user data
-                this.authService.setLoggedIn(true);
+                // this.authService.setLoggedIn(true);
                 this.authService.setUser(response);
                 // Redirect to activation instructions page
                 const navigationExtras = {
@@ -58,7 +58,7 @@ export class RegisterComponent {
         }
       },
       (error) => {
-        console.log(error);
+        
       }
     );
   }

@@ -14,7 +14,10 @@ mat-toolbar {
     font-style: normal;
     font-weight: 500;
     font-size: 2rem;
+    color: white;
     line-height: 75%;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
     /* identical to box height, or 172px */
 
     letter-spacing: 0.135em;
@@ -29,9 +32,19 @@ mat-toolbar {
 .nav-links a {
     font-family: 'Poppins', sans-serif;
     margin-right: 20px;
+    font-size: 1.5rem;
+
     color: white;
     text-decoration: none;
 }
+
+.first_name {
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
 
 .menu-button {
     display: none;

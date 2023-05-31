@@ -1,20 +1,34 @@
 <mat-toolbar >
   <span class="title">CRISTOCENTRIC</span>
   <span class="nav-links">
-    <a routerLink="/home" routerLinkActive="active">HOME</a>
-    <a routerLink="/store" routerLinkActive="active">STORE</a>
-    <a routerLink="/donate" routerLinkActive="active">DONATE</a>
-    <ng-container *ngIf="authService.isLoggedIn | async; else notLoggedIn">
-      <span>Welcome, {{ (authService.user | async)?.firstName }}!</span>
-      <button mat-button [matMenuTriggerFor]="userMenu">User Menu</button>
-      <mat-menu #userMenu="matMenu">
-        <button mat-menu-item>Profile</button>
-        <button mat-menu-item>Orders</button>
-        <button mat-menu-item (click)="authService.logout()">Logout</button>
-      </mat-menu>
-    </ng-container>
-    <ng-template #notLoggedIn>
-      <a routerLink="/login" routerLinkActive="active">LOGIN</a>
-    </ng-template>
+  <a routerLink="/home" routerLinkActive="active">HOME</a>
+  <a routerLink="/store" routerLinkActive="active">STORE</a>
+  <a routerLink="/donate" routerLinkActive="active">DONATE</a>
+  <ng-container *ngIf="authService.isLoggedIn | async; else notLoggedIn" class="logged-in-nav">
+  <span>{{ (authService.user | async)?.first_name }}</span>
+  <a class="first_name" mat-button [matMenuTriggerFor]="userMenu">{{userFirstname}}</a>
+  <mat-menu #userMenu="matMenu">
+  <button mat-menu-item>Profile</button>
+  <button mat-menu-item>Orders</button>
+  <button mat-menu-item (click)="authService.logout()">Logout</button>
+  </mat-menu>
+ 
+  <!-- Add a cart icon with the number of items in the cart -->
+  <a routerLink="/checkout" routerLinkActive="active">
+  <mat-icon>shopping_cart</mat-icon>
+  <span class="cart-badge">{{ cartItemCount }}</span>
+  </a>
+ 
+  </ng-container>
+  <ng-template #notLoggedIn>
+  <a routerLink="/login" routerLinkActive="active">LOGIN</a>
+  </ng-template>
+ 
   </span>
-</mat-toolbar>
+  <button class="menu-button" [matMenuTriggerFor]="menu" yPosition="above"> <mat-icon>menu</mat-icon></button>
+  <mat-menu #menu="matMenu">
+  <button mat-menu-item><a routerLink="/home" routerLinkActive="active">HOME</a></button>
+  <button mat-menu-item><a routerLink="/store" routerLinkActive="active">STORE</a></button>
+  </mat-menu>
+ </mat-toolbar>
+ 

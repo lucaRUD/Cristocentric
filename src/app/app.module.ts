@@ -19,6 +19,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ActivationInstructionsComponent } from './activation-instructions/activation-instructions.component';
+import {MatCardModule} from '@angular/material/card';
+import { ProductCatalogComponent } from './product-catalog/product-catalog.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { DonateComponent } from './donate/donate.component';
+import { CartComponent } from './cart/cart.component';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -33,12 +42,21 @@ import { ActivationInstructionsComponent } from './activation-instructions/activ
     NavbarComponent,
     DropdownComponent,
     ActivationInstructionsComponent,
+    ProductCatalogComponent,
+    ProductDetailsComponent,
+    DonateComponent,
+    CartComponent,
+    LoginDialogComponent,
+    CartDialogComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatCardModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatFormFieldModule,
@@ -46,6 +64,7 @@ import { ActivationInstructionsComponent } from './activation-instructions/activ
     MatToolbarModule,
     MatIconModule ,
     MatMenuModule,
+    
 
     
   ],

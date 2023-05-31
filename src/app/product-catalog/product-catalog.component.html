@@ -1,0 +1,17 @@
+  <div class="top-background">
+    <div class="top-background-image-container">  
+    <img src="assets/hoodie-woman.png" alt="hoodie-woman">
+    </div>
+    <div class="store-background-title">
+      <h1>STORE</h1>
+    </div>
+  </div>
+<div class="catalog">
+  <div class="product-item" *ngFor="let product of products">
+    <img [src]="product.image" alt="Product Image">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.price }}</p>
+    <button class="button-54" role="button" (click)="viewProduct(product.id)">SEE PRODUCT</button>
+  </div>
+
+</div>
