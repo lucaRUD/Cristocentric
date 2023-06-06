@@ -1,37 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-interface OrderData {
- 
-  // Define the shape of your order data here
-  recipient: {
-    name: string;
-    address1: string;
-    city: string;
-    state_code: string;
-    country_code: string;
-    zip: string;
-  };
-  items: Array<{
-    variant_id: number;
-    quantity: number;
-    name: string;
-    retail_price: string;
-    files: Array<{
-      url: string;
-    }>;
-  }>;
-}
+import { BehaviorSubject } from 'rxjs';
+import { OrderData } from 'src/order';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
-  
-  constructor(private http: HttpClient) {}
+  private orderDataSource = new BehaviorSubject<OrderData | null>(null);
+  orderData$ = this.orderDataSource.asObservable();
+
+  constructor(private http: HttpClient) {
+    // Retrieve the orderData object from local storage
+    const storedOrderData = localStorage.getItem('orderData');
+    if (storedOrderData) {
+      this.orderDataSource.next(JSON.parse(storedOrderData));
+    }
+    console.log(this.orderData$);
+  }
+
+  updateOrderData(orderData: OrderData) {
+    // Update the value of the orderDataSource BehaviorSubject
+    this.orderDataSource.next(orderData);
+
+    // Store the orderData object in local storage
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+  }
 
   createOrder(orderData: OrderData) {
-     
-    return this.http.post('http://127.0.0.1:8000/accounts/orders', orderData);
+    return this.http.post('http://127.0.0.1:8000/accounts/orders/', orderData);
   }
 }

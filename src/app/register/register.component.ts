@@ -27,6 +27,10 @@ export class RegisterComponent {
 
   onSubmit() {
     // Check if email, username, and phone number already exist
+    if (this.password !== this.confirm_password) {
+      
+      return;
+      }
     this.http.get(this.check_url + this.email + "/" + this.username + "/" + this.phone_number + "/").subscribe(
       (res: any) => {
         this.emailExists = res.email_exists;
@@ -45,7 +49,8 @@ export class RegisterComponent {
                 const navigationExtras = {
                   state: {
                     name: `${this.first_name}`,
-                    email: this.email
+                    email: this.email,
+                    redirected:true
                   }
                 };
                 this.router.navigate(['/activation-instructions'], navigationExtras);

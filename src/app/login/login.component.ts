@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('onSubmit called');
     this.authService.login(this.username, this.password).subscribe(
       (response) => {
         // handle successful login
@@ -39,13 +40,16 @@ export class LoginComponent implements OnInit {
         this.authService.setLoggedIn(true);
         this.authService.setUser(response);
         this.authService.getUserData();
+        location.reload();
+
         if (this.returnUrl) {
           this.router.navigateByUrl(this.returnUrl);
         } else {
-          // navigate to default page
+          this.router.navigate(['/home']);
         }
       },
       (error) => {
+        console.log('login failed');
         this.error = 'Invalid username or password';
       }
     );

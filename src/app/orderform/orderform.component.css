@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+
+
+
+}
+
+.left {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    animation-name: left;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 1s;
+}
+
+.right {
+    flex: 1;
+    background-color: black;
+    transition: 1s;
+    background-image: url(src/assets/worshipbg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header>h2 {
+    margin: 0;
+    color: #4f46a5;
+}
+
+.header>h4 {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 15px;
+    /* color: rgba(0, 0, 0, .4); */
+    color: white;
+}
+
+.form {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form>p {
+    text-align: right;
+}
+
+.form>p>a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.name-info {
+    display: flex;
+    justify-content: space-between;
+    width: 40.5vh;
+}
+
+.name-info input {
+    width: 50%;
+}
+
+.birth-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Poppins', sans-serif;
+}
+
+.birth-info span {
+    color: white;
+    bottom: 0;
+
+}
+
+.form-field {
+    height: 40px;
+    padding: 0 px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    outline: 0;
+    transition: 0.2s;
+    margin-top: 20px;
+    width: 40.5vh;
+}
+
+.form-field:focus {
+    border-color: #0f7ef1;
+}
+
+.form>button {
+    padding: 12px 10px;
+    border: 0;
+    background: linear-gradient(to right, #ff8800 0%, #ff0000 100%);
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    width: 40.5vh;
+}
+
+#google-button {
+    background: linear-gradient(to right, #4285F4 0%, #4285F4 25%, #DB4437 25%, #DB4437 50%, #F4B400 50%, #F4B400 75%, #0F9D58 75%, #0F9D58 100%);
+}
+
+.animation {
+    animation-name: move;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-delay: 2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.a1 {
+    animation-delay: 2s;
+}
+
+.a2 {
+    animation-delay: 2.1s;
+
+}
+
+.a3 {
+    animation-delay: 2.2s;
+}
+
+.a4 {
+    animation-delay: 2.3s;
+}
+
+.a5 {
+    animation-delay: 2.4s;
+}
+
+.a6 {
+    animation-delay: 2.5s;
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-40px);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+@keyframes left {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        padding: 20px 40px;
+        width: 440px;
+    }
+}

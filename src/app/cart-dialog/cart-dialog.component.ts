@@ -18,7 +18,7 @@ export class CartDialogComponent {
   }
 
   checkout(): void {
-    this.router.navigate(['/checkout']);
+    this.router.navigate(['/cart']);
     this.dialogRef.close();
   }
 }

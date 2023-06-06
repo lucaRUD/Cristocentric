@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
   userId: string | null = null;
@@ -17,9 +17,20 @@ export class CartService {
     this.authService.getUserData().subscribe((user) => {
       if (user) {
         this.userId = user.id.toString();
-        this.items = JSON.parse(
+        // Log the value of the data stored in local storage
+        // console.log(
+        // 'Data stored in local storage:',
+        // localStorage.getItem(`cartItems-${this.userId}`)
+        // );
+        // Parse the data stored in local storage
+        const cartItems = JSON.parse(
           localStorage.getItem(`cartItems-${this.userId}`) || '[]'
         );
+        // Convert the price property of each Product object to a number
+        this.items = cartItems.map((item: any) => ({
+          ...item,
+          price: parseFloat(item.price),
+        }));
         // Emit the items whenever they are updated
         this.items$.next(this.items);
       }
@@ -41,7 +52,7 @@ export class CartService {
   }
 
   getItems() {
-    console.log("getItems called");
+    console.log('getItems called');
     return this.items;
   }
 
@@ -70,17 +81,16 @@ export class CartService {
 
   removeFromCart(product: Product) {
     if (this.userId) {
-    const index = this.items.findIndex(item => item.id === product.id);
-    if (index > -1) {
-    this.items.splice(index, 1);
-    localStorage.setItem(
-    `cartItems-${this.userId}`,
-    JSON.stringify(this.items)
-    );
-    // Emit the items whenever they are updated
-    this.items$.next(this.items);
+      const index = this.items.findIndex((item) => item.id === product.id);
+      if (index > -1) {
+        this.items.splice(index, 1);
+        localStorage.setItem(
+          `cartItems-${this.userId}`,
+          JSON.stringify(this.items)
+        );
+        // Emit the items whenever they are updated
+        this.items$.next(this.items);
+      }
     }
-    }
-   }
-   
+  }
 }

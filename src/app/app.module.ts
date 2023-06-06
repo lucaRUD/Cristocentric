@@ -28,6 +28,9 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { FooterComponent } from './footer/footer.component';
+import { OrderFormComponent } from './orderform/orderform.component';
+import { OrderCompleteComponent } from './order-complete/order-complete.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -48,7 +51,10 @@ import { FooterComponent } from './footer/footer.component';
     CartComponent,
     LoginDialogComponent,
     CartDialogComponent,
-    FooterComponent
+    FooterComponent,
+    OrderFormComponent,
+    OrderCompleteComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

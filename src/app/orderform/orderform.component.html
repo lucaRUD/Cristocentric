@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="left">
+    <div class="header">
+    <h2 class="animation a1">Order</h2>
+    <h4 class="animation a3">Enter your information to complete your order.</h4>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+    <div class="form">
+   
+    <input class="form-field animation a3" type="text" name="name" [(ngModel)]="orderData.recipient.name" required placeholder="Name">
+    <input class="form-field animation a3" type="text" name="address1" [(ngModel)]="orderData.recipient.address.line1" required placeholder="Address Line 1">
+    <input class="form-field animation a3" type="text" name="address2" [(ngModel)]="orderData.recipient.address.line2" placeholder="Address Line 2">
+    <input class="form-field animation a3" type="text" name="postalOrZipCode" [(ngModel)]="orderData.recipient.address.postalOrZipCode" required placeholder="Postal or Zip Code">
+    <input class="form-field animation a3" type="text" name="countryCode" [(ngModel)]="orderData.recipient.address.countryCode" required placeholder="Country Code">
+    <input class="form-field animation a3" type="text" name="townOrCity" [(ngModel)]="orderData.recipient.address.townOrCity" required placeholder="Town or City">
+    <input class="form-field animation a3" type="text" name= "stateOrCounty" [(ngModel)] = "orderData.recipient.address.stateOrCounty" placeholder = "State or County">
+   
+    <button class = "animation a5"type = "submit" (click)="onSubmit()">Submit</button>
+    </div>
+    </form>
+    </div>
+    <div class = "right"></div>
+   </div>
+   

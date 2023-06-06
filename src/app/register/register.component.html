@@ -17,6 +17,7 @@
       <div *ngIf="emailExists">This email is already in use.</div>
       <input class="form-field animation a3" type="password" name="password" [(ngModel)]="password" required placeholder="Password">
       <input class="form-field animation a3" type="password" name="confirm_password" [(ngModel)]="confirm_password" required placeholder="Confirm password">
+      <div *ngIf="password !== confirm_password">Passwords do not match.</div>
       <input class="form-field animation a3" type="text" name="phone_number" [(ngModel)]="phone_number" required placeholder="Phone number">
       <div *ngIf="phoneNumberExists">This phone number is already in use.</div>
       <!-- <input class="form-field animation a3" type="text" name=" bio" [(ngModel)]="bio" required placeholder="Bio"> -->
